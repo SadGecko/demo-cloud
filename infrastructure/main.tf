@@ -107,12 +107,11 @@ resource "aws_instance" "wp-server" {
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt update
     sudo apt -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-
     sudo usermod -aG docker ubuntu
 
     git clone https://github.com/SadGecko/demo-cloud.git
-    cd demo-cloud
-    docker compose up -d
+    cd /demo-cloud/app
+    docker compose up
   EOF
 
   vpc_security_group_ids = [
