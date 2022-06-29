@@ -94,7 +94,7 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "wp-server" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.micro"
+  instance_type = "t2.micro"
   subnet_id     = aws_subnet.wp-subnet.id
 
   associate_public_ip_address = true
