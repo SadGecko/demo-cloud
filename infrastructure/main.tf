@@ -128,5 +128,5 @@ resource "local_file" "prometheus-config" {
   content  = templatefile("prometheus.tmpl", {
     server_ip = aws_instance.wp-server.public_ip,
   })
-  filename = "prometheus.yml"
+  filename = "../app/prometheus.yml"
 }
